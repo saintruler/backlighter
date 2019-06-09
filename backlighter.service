@@ -1,0 +1,12 @@
+[Unit]
+Description=Server that changes brightness of screen
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/local/bin/backlighter_server.py
+ExecStop=/bin/kill -s QUIT $MAINPID
+ExecReload=/bin/kill -s HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target
